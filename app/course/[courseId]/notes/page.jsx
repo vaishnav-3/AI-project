@@ -66,75 +66,94 @@ function ViewNotes() {
   const videoId = notes[stepCount]?.videoId;
 
   return (
-    <div className="h-screen p-5">
-  {/* Navigation */}
-  <div className="flex gap-5 items-center mb-5">
-    {/* Button to Navigate to StudyMaterialSection */}
-    <Link href={`/course/${courseId}`}>
-      <button className="btn btn-primary">Material Section</button>
-    </Link>
-
-    <button
-      className="btn btn-outline-primary"
-      onClick={prevStep}
-      disabled={stepCount === 0 || notes.length === 0}
-    >
-      Previous
-    </button>
-
-    <div className="flex w-full gap-2">
-      {notes.map((_, index) => (
-        <div
-          key={index}
-          className={`w-full h-2 rounded-full ${
-            index <= stepCount ? "bg-primary" : "bg-gray-300"
-          }`}
-        ></div>
-      ))}
-    </div>
-
-    <button
-      className="btn btn-outline-primary"
-      onClick={nextStep}
-      disabled={stepCount === notes.length - 1 || notes.length === 0}
-    >
-      Next
-    </button>
-  </div>
-
-  {/* Render Content */}
-  {jsonObject && (
-    <div>
-      <div className="flex text-2xl font-bold mb-3">
-        <span className="pr-3">{jsonObject.emoji}</span>
-        {jsonObject.chapterTitle}
+    <div className="min-h-screen p-4 md:p-8">
+      {/* Top Progress + Navigation */}
+      <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+        <Link href={`/course/${courseId}`}>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-400 transition">
+            Material Section
+          </button>
+        </Link>
+  
+        <button
+          onClick={prevStep}
+          disabled={stepCount === 0 || notes.length === 0}
+          className="px-4 py-2 border border-blue-500 text-blue-600 rounded-xl hover:bg-blue-500 hover:text-white transition disabled:opacity-50"
+        >
+          Previous
+        </button>
+  
+        {/* Progress Indicator */}
+      <div className="flex flex-1 gap-2">
+        {notes.map((_, index) => (
+          <div
+            key={index}
+            className={`flex-1 h-2 rounded-full ${
+              index <= stepCount ? "bg-indigo-600" : "bg-gray-300"
+            }`}
+          ></div>
+        ))}
+        </div>
+  
+        <button
+          onClick={nextStep}
+          disabled={stepCount === notes.length - 1 || notes.length === 0}
+          className="px-4 py-2 border border-blue-500 text-blue-600 rounded-xl hover:bg-blue-500 hover:text-white transition disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
-      <p className="text-gray-700 mb-5">{jsonObject.chapterSummary}</p>
-
-      {videoId && (
-        <div className="mt-4 mb-6">
-          <h3 className="text-lg font-semibold mb-2">Chapter Video</h3>
-          <VideoPlayer videoId={videoId} />
+  
+      {/* Main Content */}
+      {jsonObject && (
+        <div className="flex flex-col lg:flex-row gap-8 w-full">
+          {/* Video Section */}
+          {videoId && (
+            <div className="w-full lg:w-1/2 sticky top-24 h-fit">
+              <h3 className="text-xl font-semibold mb-4 text-gray-700">Chapter Video</h3>
+              <VideoPlayer videoId={videoId} />
+            </div>
+          )}
+  
+          {/* Notes Section */}
+          <div className="w-full lg:w-1/2">
+            {/* Chapter Title */}
+            <div className="flex items-center text-2xl md:text-3xl font-bold mb-6">
+              <span className="pr-3">{jsonObject.emoji}</span>
+              {jsonObject.chapterTitle}
+            </div>
+  
+            {/* Chapter Summary */}
+            <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed">
+              {jsonObject.chapterSummary}
+            </p>
+  
+            {/* Topics */}
+            <div className="space-y-8">
+              {jsonObject.topics.map((topic, index) => (
+                <div
+                  key={index}
+                  className="group p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-[1.02] border border-gray-200"
+                >
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 group-hover:text-blue-500 mb-4">
+                    {topic.topicTitle}
+                  </h2>
+  
+                  <div className="prose prose-blue max-w-none text-gray-700">
+                    <ReactMarkdown
+                      children={topic.content}
+                      remarkPlugins={[remarkGfm]}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
-
-      {jsonObject.topics.map((topic, index) => (
-        <div
-          key={index}
-          className="p-4 bg-gray-100 rounded-lg shadow-md mb-4"
-        >
-          <h1 className="text-lg font-bold mb-2">{topic.topicTitle}</h1>
-          {/* Render Markdown Content */}
-          <ReactMarkdown
-            children={topic.content}
-            remarkPlugins={[remarkGfm]}
-          />
-        </div>
-      ))}
     </div>
-  )}
-</div>
   );
+  
+  
 }
-
 export default ViewNotes;

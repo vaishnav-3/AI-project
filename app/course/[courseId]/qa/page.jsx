@@ -87,7 +87,7 @@ function ViewQA() {
       {/* Render QA Content */}
       {qaData[stepCount] && (
         <div>
-          <h1 className="text-2xl font-bold mb-3">
+          <h1 className="text-2xl font-bold mb-3 ">
             {qaData[stepCount].question}
           </h1>
           <button
@@ -99,7 +99,7 @@ function ViewQA() {
 
           {/* Smoothly toggle the answer inside a container */}
           <div
-            className={`transition-all duration-500 ease-in-out overflow-hidden bg-white p-4 rounded-md shadow-md`}
+            className={`transition-all duration-500 ease-in-out overflow-hidden bg-white p-4 rounded-xl shadow-md`}
             style={{
               maxHeight: showAnswer ? "1000px" : "0", // Transition max height
               opacity: showAnswer ? "1" : "0", // Transition opacity

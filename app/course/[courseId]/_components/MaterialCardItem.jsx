@@ -80,7 +80,7 @@ function MaterialCardItem({ item, studyTypeContent, course, refreshData }) {
   return (
     <Link href={`/course/${course.courseId}${item.path}`}>
       <div
-        className={`border shadow-md rounded-lg bg-gray-100 p-5 h-full flex flex-col items-center justify-between ${
+        className={`border shadow-md rounded-xl bg-gray-100 p-5 h-full flex flex-col items-center justify-between ${
           !isContentGenerated ? "grayscale" : ""
         }`}
       >

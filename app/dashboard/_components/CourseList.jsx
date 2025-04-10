@@ -43,7 +43,7 @@ function CourseList() {
   return (
     <div className="mt-2">
         <h2 className="font-bold text-2xl flex justify-between items-center">Your Study Material
-          <Button onClick={GetCourseList} variant="outline" className="border-primary text-primary"><RefreshCw/></Button>
+          <Button onClick={GetCourseList} variant="outline" className="border-primary rounded-xl text-primary"><RefreshCw/></Button>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-2 gap-5">
             {loading==false? courseList.map((course, index) => (

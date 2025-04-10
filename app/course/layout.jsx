@@ -5,7 +5,7 @@ function CourseViewLayout({children}) {
   return (
     <div>
       <DashboardHeader />
-      <div className="mx-10 md:mx-36 lg:px-60 mt-10">{children}</div>
+      <div className="px-4 md:px-8 lg:px-12 mt-10">{children}</div>
     </div>
   );
 }

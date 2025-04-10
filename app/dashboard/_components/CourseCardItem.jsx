@@ -40,7 +40,7 @@ function CourseCardItem({ course, refreshData }) {
    
 
   return (
-    <div className="p-4  w-full border rounded-lg shadow-md bg-gray-100">
+    <div className="p-4  w-full border rounded-xl shadow-md bg-gray-100">
       <div className="flex flex-col justify-between">
         <div className="flex items-center mb-4">
           <img

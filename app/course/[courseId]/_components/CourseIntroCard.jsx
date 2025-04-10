@@ -2,7 +2,7 @@ import React from "react";
 
 function CourseIntroCard({ course }) {
   return (
-    <div className="flex gap-6 items-center p-6 border shadow-md rounded-lg bg-gray-100 w-full mx-auto">
+    <div className="flex gap-6 items-center p-6 border shadow-md rounded-xl bg-gray-100 w-full mx-auto">
 
       <div className="w-[120px] flex flex-col justify-center items-center">
         <img

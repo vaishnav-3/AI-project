@@ -38,7 +38,7 @@ function SideBar() {
         <div className='mt-5'>
           {MenuList.map((menu, index) => (
           <Link key={index} href={menu.path}>
-            <div className={`flex gap-5 items-center p-3 hover:bg-gray-300 rounded-lg cursor-pointer mt-3 ${path==menu.path&&'bg-gray-300'}`}>
+            <div className={`flex gap-5 items-center p-3 hover:bg-gray-300 rounded-xl cursor-pointer mt-3 ${path==menu.path&&'bg-gray-300'}`}>
                 <menu.icon />
                 <h2>{menu.name}</h2>
             </div>
