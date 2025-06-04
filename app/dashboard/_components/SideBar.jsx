@@ -18,7 +18,7 @@ function SideBar() {
         {
             name: 'Make Notes',
             icon: NotebookPen,
-            path: 'https://ai-pdf-coral.vercel.app/dashboard',
+            path: 'https://ai-notes-puce.vercel.app/dashboard',
         }       
     ]
 
