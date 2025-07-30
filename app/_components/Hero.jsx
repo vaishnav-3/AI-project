@@ -74,7 +74,7 @@ function Hero() {
             Testimonials
           </Link>
           <Link
-            className="text-sm flex bg-blue-600 gap-3 p-2 text-white rounded-md font-medium"
+            className="text-sm flex bg-blue-600 gap-3 p-2 text-white rounded-xl font-medium"
             href="/dashboard"
           >
             <LayoutDashboard size={20} />
@@ -100,7 +100,7 @@ function Hero() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link
                     href={"/dashboard"}
-                    className="bg-blue-600  w-fit py-2 text-white hover:bg-blue-700 flex items-center px-2 rounded-lg"
+                    className="bg-blue-600  w-fit py-2 text-white hover:bg-blue-700 flex items-center px-2 rounded-xl"
                   >
                     Try LearnX-AI
                   </Link>
@@ -353,13 +353,13 @@ function Hero() {
               <div className="w-full max-w-sm space-y-2">
                 <form className="flex space-x-2">
                   <Input
-                    className="flex-1 bg-white text-blue-600 placeholder:text-blue-600/50"
+                    className="flex-1 bg-white text-blue-600 placeholder:text-blue-600/50 rounded-xl"
                     placeholder="Enter your email"
                     type="email"
                   />
                   <Button
                     type="submit"
-                    className="bg-white text-blue-600 hover:bg-white/90"
+                    className="bg-white text-blue-600 hover:bg-white/90 rounded-xl"
                   >
                     Get Started
                   </Button>
